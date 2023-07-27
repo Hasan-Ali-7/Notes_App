@@ -23,162 +23,164 @@ class _EditState extends State<Edit> {
 
     colorIndex = widget.note.colorIndex;
 
-    return Scaffold(
-      body: Column(
-        children: [
-          CostumeAppBar(
-            title: 'Edit', 
-            icon: Icons.done, 
-            iconPressed: () {
-                widget.note.title = title ?? widget.note.title;
-                widget.note.content = content ?? widget.note.content;
-                widget.note.save();
-                Navigator.pop(context);
-            }
-          ),
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.all(10),
-              children: [
-                CTextFormField(
-                    hint: widget.note.title,
-                    onSaved: (value) {
-                      title = value;
-                    },
-                    maxLines: 1,
-                    minLines: 1),
-                const SizedBox(height: 15,),
-                CTextFormField(
-                    hint: widget.note.content,
-                    onSaved: (value) {
-                      content = value;
-                    },
-                    maxLines: 100,
-                    minLines: 10),
-                const SizedBox(height: 15,),
-                Padding(
-                  padding: const EdgeInsets.all(7.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                        onTap: (){
-                          widget.note.colorIndex = 0;
-                          setState(() {
-                          
-                          });
-                        },
-                        child: Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: BlocProvider.of<App_Cubit>(context).primaryColors[0],
-                            borderRadius: BorderRadius.circular(50)),
-                          child: colorIndex == 0
-                          ? const Icon(
-                            Icons.done,
-                            color: Colors.black,
-                            size: 40,
-                          )
-                          : null,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: (){
-                          widget.note.colorIndex = 1;
-                          setState(() {
-                          
-                          });
-                        },
-                        child: Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: BlocProvider.of<App_Cubit>(context).primaryColors[1],
-                            borderRadius: BorderRadius.circular(50)),
-                          child: colorIndex == 1
-                          ? const Icon(
-                            Icons.done,
-                            color: Colors.black,
-                            size: 40,
-                          )
-                          : null,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: (){
-                          widget.note.colorIndex = 2;
-                          setState(() {
-                          
-                          }); 
-                        },
-                        child: Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: BlocProvider.of<App_Cubit>(context).primaryColors[2],
-                            borderRadius: BorderRadius.circular(50)),
-                          child: colorIndex == 2
-                          ? const Icon(
-                            Icons.done,
-                            color: Colors.black,
-                            size: 40,
-                          )
-                          : null,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: (){
-                          widget.note.colorIndex = 3;
-                          setState(() {
-                          
-                          });
-                        },
-                        child: Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: BlocProvider.of<App_Cubit>(context).primaryColors[3],
-                            borderRadius: BorderRadius.circular(50)),
-                          child: colorIndex == 3
-                          ? const Icon(
-                              Icons.done,
-                              color: Colors.black,
-                              size: 40,
-                            )
-                          : null,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: (){
-                          widget.note.colorIndex = 4;
-                          setState(() {
-                          
-                          });
-                        },
-                        child: Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: BlocProvider.of<App_Cubit>(context).primaryColors[4],
-                            borderRadius: BorderRadius.circular(50)),
-                          child: colorIndex == 4
-                          ? const Icon(
-                              Icons.done,
-                              color: Colors.black,
-                              size: 40,
-                            )
-                          : null,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            CostumeAppBar(
+              title: 'Edit', 
+              icon: Icons.done, 
+              iconPressed: () {
+                  widget.note.title = title ?? widget.note.title;
+                  widget.note.content = content ?? widget.note.content;
+                  widget.note.save();
+                  Navigator.pop(context);
+              }
             ),
-          ),
-        ],
-      )
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.all(10),
+                children: [
+                  CTextFormField(
+                      hint: widget.note.title,
+                      onSaved: (value) {
+                        title = value;
+                      },
+                      maxLines: 1,
+                      minLines: 1),
+                  const SizedBox(height: 15,),
+                  CTextFormField(
+                      hint: widget.note.content,
+                      onSaved: (value) {
+                        content = value;
+                      },
+                      maxLines: 100,
+                      minLines: 10),
+                  const SizedBox(height: 15,),
+                  Padding(
+                    padding: const EdgeInsets.all(7.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                          onTap: (){
+                            widget.note.colorIndex = 0;
+                            setState(() {
+                            
+                            });
+                          },
+                          child: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: BlocProvider.of<App_Cubit>(context).primaryColors[0],
+                              borderRadius: BorderRadius.circular(50)),
+                            child: colorIndex == 0
+                            ? const Icon(
+                              Icons.done,
+                              color: Colors.black,
+                              size: 40,
+                            )
+                            : null,
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: (){
+                            widget.note.colorIndex = 1;
+                            setState(() {
+                            
+                            });
+                          },
+                          child: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: BlocProvider.of<App_Cubit>(context).primaryColors[1],
+                              borderRadius: BorderRadius.circular(50)),
+                            child: colorIndex == 1
+                            ? const Icon(
+                              Icons.done,
+                              color: Colors.black,
+                              size: 40,
+                            )
+                            : null,
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: (){
+                            widget.note.colorIndex = 2;
+                            setState(() {
+                            
+                            }); 
+                          },
+                          child: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: BlocProvider.of<App_Cubit>(context).primaryColors[2],
+                              borderRadius: BorderRadius.circular(50)),
+                            child: colorIndex == 2
+                            ? const Icon(
+                              Icons.done,
+                              color: Colors.black,
+                              size: 40,
+                            )
+                            : null,
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: (){
+                            widget.note.colorIndex = 3;
+                            setState(() {
+                            
+                            });
+                          },
+                          child: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: BlocProvider.of<App_Cubit>(context).primaryColors[3],
+                              borderRadius: BorderRadius.circular(50)),
+                            child: colorIndex == 3
+                            ? const Icon(
+                                Icons.done,
+                                color: Colors.black,
+                                size: 40,
+                              )
+                            : null,
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: (){
+                            widget.note.colorIndex = 4;
+                            setState(() {
+                            
+                            });
+                          },
+                          child: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: BlocProvider.of<App_Cubit>(context).primaryColors[4],
+                              borderRadius: BorderRadius.circular(50)),
+                            child: colorIndex == 4
+                            ? const Icon(
+                                Icons.done,
+                                color: Colors.black,
+                                size: 40,
+                              )
+                            : null,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        )
+      ),
     );
   }
 }

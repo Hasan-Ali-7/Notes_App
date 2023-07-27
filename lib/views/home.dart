@@ -25,47 +25,49 @@ class Home extends StatelessWidget {
         print(e);
       }
 
-        return Scaffold(
-          resizeToAvoidBottomInset: true,
-          floatingActionButton:
-              FloatingActionButton(
-            onPressed: () => {
-              showModalBottomSheet(
-                  isScrollControlled: true,
-                  shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(
-                              7)),
-                  context: context,
-                  builder: (context) {
-                    return const AddNote();
-                  })
-            },
-            backgroundColor: kColor,
-            focusColor: kColor,
-            hoverColor: kColor,
-            child: const Icon(
-              Icons.add,
-              size: 35,
-              color: Colors.white,
+        return SafeArea(
+          child: Scaffold(
+            resizeToAvoidBottomInset: true,
+            floatingActionButton:
+                FloatingActionButton(
+              onPressed: () => {
+                showModalBottomSheet(
+                    isScrollControlled: true,
+                    shape: RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.circular(
+                                7)),
+                    context: context,
+                    builder: (context) {
+                      return const AddNote();
+                    })
+              },
+              backgroundColor: kColor,
+              focusColor: kColor,
+              hoverColor: kColor,
+              child: const Icon(
+                Icons.add,
+                size: 35,
+                color: Colors.white,
+              ),
             ),
-          ),
-          body: Column(
-            children: [
-              const CostumeAppBar(
-                title: 'Notes',
-              ),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: notes!.length,
-                  itemBuilder: (BuildContext context,  int index) {
-                    return Note(
-                      note: notes![index],
-                    );
-                  },
+            body: Column(
+              children: [
+                const CostumeAppBar(
+                  title: 'Notes',
                 ),
-              ),
-            ],
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: notes!.length,
+                    itemBuilder: (BuildContext context,  int index) {
+                      return Note(
+                        note: notes![index],
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },
