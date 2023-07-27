@@ -43,8 +43,6 @@ class Note extends StatelessWidget {
                       fontSize: 20,
                       color: Colors.grey[900],
                     ),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
                   ),
                   const SizedBox(
                     height: 10,

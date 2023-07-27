@@ -34,6 +34,7 @@ class _EditState extends State<Edit> {
                   widget.note.title = title ?? widget.note.title;
                   widget.note.content = content ?? widget.note.content;
                   widget.note.save();
+                  BlocProvider.of<App_Cubit>(context).fetchNote();
                   Navigator.pop(context);
               }
             ),
